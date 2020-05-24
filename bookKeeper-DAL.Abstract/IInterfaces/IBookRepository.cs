@@ -7,7 +7,7 @@ using System.Web;
 
 namespace bookKeeper_DAL.Abstract.IInterfaces
 {
-    interface IBookRepository : IRepository<int, Book> 
+    public interface IBookRepository : IRepository<int, Book> 
     {
         IEnumerable<Book> GetUsersBooks(int userId);
     }

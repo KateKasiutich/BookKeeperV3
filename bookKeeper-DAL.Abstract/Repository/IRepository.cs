@@ -5,7 +5,7 @@ using System.Web;
 
 namespace bookKeeper_DAL.Abstract.Repository
 {
-    interface IRepository<TKey, TEntity> : IDisposable where TKey : struct where TEntity : class
+    public interface IRepository<TKey, TEntity> : IDisposable where TKey : struct where TEntity : class
     {
         IEnumerable<TEntity> GetAll(); 
         TEntity GetSingle(TKey id);

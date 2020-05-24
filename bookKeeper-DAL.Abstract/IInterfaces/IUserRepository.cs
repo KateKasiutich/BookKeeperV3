@@ -7,7 +7,7 @@ using System.Web;
 
 namespace bookKeeper_DAL.Abstract.IInterfaces
 {
-    interface IUserRepository : IRepository<int, User>
+    public interface IUserRepository : IRepository<int, User>
     {
 
     }
