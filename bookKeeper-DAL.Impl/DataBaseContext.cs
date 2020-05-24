@@ -17,5 +17,5 @@ namespace bookKeeper_DAL.Impl
             Database.EnsureCreated();
         }
     }
-    }
+    
 }
