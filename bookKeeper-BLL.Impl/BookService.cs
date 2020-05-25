@@ -22,9 +22,6 @@ namespace bookKeeper_BLL.Impl
         public void AddBook(string name, string author, string review, int userId)
         {
             Book book = new Book();
-            if (book.UserId != userId)
-                throw new Exception("You are trying to edit another user's Book.");
-            else
             book.Title = name;
             book.Author = author;
             book.Description = review;
@@ -36,6 +33,8 @@ namespace bookKeeper_BLL.Impl
         public void EditBook(string name, string author, string review, int userId, int bookId)
         {
             Book book = BookRepo.GetSingle(bookId);
+            if (book.UserId != userId)
+                throw new Exception("You are trying to edit another user's Book.");
             book.Title = name;
             book.Author = author;
             book.Description = review;
@@ -52,8 +51,7 @@ namespace bookKeeper_BLL.Impl
         {
             Book book = BookRepo.GetSingle(bookId);
             if (book.UserId != userId)
-                throw new Exception("You are trying to edit delete user's Book.");
-            else
+                throw new Exception("You are trying to delete another user's Book.");
             BookRepo.Delete(bookId);
             BookRepo.Save();
         }
