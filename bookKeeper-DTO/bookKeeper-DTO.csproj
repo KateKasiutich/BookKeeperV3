@@ -70,7 +70,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthDto.cs" />
+    <Compile Include="RegisterDto.cs" />
     <Compile Include="bookDto.cs" />
     <Compile Include="LoginDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

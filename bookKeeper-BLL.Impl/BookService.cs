@@ -1,12 +1,10 @@
 ﻿using bookKeeper_BLL.Abstract;
 using bookKeeper_DAL.Abstract.IInterfaces;
-using bookKeeper_DAL.Impl;
 using bookKeeper_DTO;
 using bookKeeper_Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace bookKeeper_BLL.Impl
 {
@@ -16,28 +14,28 @@ namespace bookKeeper_BLL.Impl
 
         public BookService(IBookRepository bookRepo)
         {
-        BookRepo = bookRepo;
+            BookRepo = bookRepo;
         }
 
-        public void AddBook(string name, string author, string review, int userId)
+        public void AddBook(BookDto bookDto, int userId)
         {
             Book book = new Book();
-            book.Title = name;
-            book.Author = author;
-            book.Description = review;
+            book.Title = bookDto.Title;
+            book.Author = bookDto.Author;
+            book.Description = bookDto.Review;
             book.UserId = userId;
             BookRepo.Create(book);
             BookRepo.Save();
         }
 
-        public void EditBook(string name, string author, string review, int userId, int bookId)
+        public void EditBook(BookDto bookDto, int userId)
         {
-            Book book = BookRepo.GetSingle(bookId);
+            Book book = BookRepo.GetSingle(bookDto.BookId);
             if (book.UserId != userId)
                 throw new Exception("You are trying to edit another user's Book.");
-            book.Title = name;
-            book.Author = author;
-            book.Description = review;
+            book.Title = bookDto.Title;
+            book.Author = bookDto.Author;
+            book.Description = bookDto.Review;
             BookRepo.Update(book);
             BookRepo.Save();
         }
@@ -54,6 +52,27 @@ namespace bookKeeper_BLL.Impl
                 throw new Exception("You are trying to delete another user's Book.");
             BookRepo.Delete(bookId);
             BookRepo.Save();
+        }
+
+
+        private bool _disposed = false;
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    BookRepo.Dispose();
+                }
+            }
+            _disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

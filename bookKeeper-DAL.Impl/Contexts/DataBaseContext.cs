@@ -1,11 +1,7 @@
 ﻿using bookKeeper_Entity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace bookKeeper_DAL.Impl
+namespace bookKeeper_DAL.Impl.Contexts
 {
     public class DataBaseContext : DbContext
     {
@@ -17,5 +13,4 @@ namespace bookKeeper_DAL.Impl
             Database.EnsureCreated();
         }
     }
-    
 }

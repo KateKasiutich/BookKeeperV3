@@ -13,6 +13,9 @@ namespace bookKeeper_DTO
         public string Review { get; set; }
         public int BookId { get; set; }
 
+        public BookDto()
+        { }
+
         public BookDto(string title, string author, string review, int bookId )
         {
             Title = title;

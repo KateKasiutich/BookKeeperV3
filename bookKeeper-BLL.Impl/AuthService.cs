@@ -1,10 +1,9 @@
 ﻿using bookKeeper_DAL.Abstract;
 using bookKeeper_DAL.Abstract.IInterfaces;
+using bookKeeper_DTO;
 using bookKeeper_Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Web.Security;
 
 namespace bookKeeper_BLL.Impl
 {
@@ -17,27 +16,77 @@ namespace bookKeeper_BLL.Impl
             UserRepo = userRepository;
         }
 
-        public bool Authentication(string email, string password)
+        public bool Registration(RegisterDto regInfo, out int id)
         {
-            //вот тут я не знаю, что делать и как дальше жить
+            try
+            {
+                User user = new User();
+                user.Name = regInfo.Name;
+                user.Email = regInfo.Email;
+                user.Password = regInfo.Password;
+                UserRepo.Create(user);
+                UserRepo.Save();
+                id = user.UserId;
+                FormsAuthentication.SetAuthCookie(user.Name, true);
+                return true;
+            }
+            catch (Exception)
+            {
+                FormsAuthentication.SignOut();
+                id = 0;
+                return false;
+            }
         }
 
-        public bool Registration(string name, string email, string password)
+        public bool Authentication(LoginDto logInfo, out int id)
         {
-            bool isRegistered;
-            User user = new User();
-            user.Name = name;
-            user.Email = email;
-            user.Password = password;
-            UserRepo.Create(user);
-            UserRepo.Save();
-            return isRegistered = true;
-            //вероятно, нужно сделать проверку на валидность введенных данных, но я не уверена, что это здесь
+            try
+            {
+                User user = UserRepo.GetByEmail(logInfo.Email);
+                id = user.UserId;
+
+                if (user.Password == logInfo.Password)
+                {
+                    FormsAuthentication.SetAuthCookie(user.Name, true);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                FormsAuthentication.SignOut();
+                id = 0;
+                return false;
+            }
         }
 
-        public bool SignOut(int userId)
+        public void SignOut()
         {
-            //тут тоже
+            FormsAuthentication.SignOut();
+        }
+
+
+        private bool _disposed = false;
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    UserRepo.Dispose();
+                }
+            }
+            _disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

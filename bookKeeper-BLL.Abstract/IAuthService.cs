@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using bookKeeper_DTO;
+using System;
 
 namespace bookKeeper_DAL.Abstract
 {
-    public interface IAuthService
+    public interface IAuthService : IDisposable
     {
-        bool Registration(string name, string email, string password);
-        bool Authentication(string email, string password);
-        bool SignOut(int userId);
+        bool Registration(RegisterDto regInfo, out int id);
+        bool Authentication(LoginDto logInfo, out int id);
+        void SignOut();
     }
 }

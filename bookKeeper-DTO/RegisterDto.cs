@@ -6,7 +6,7 @@ using System.Web;
 
 namespace bookKeeper_DTO
 {
-    public class AuthDto
+    public class RegisterDto
     {
         [Required(ErrorMessage = "Не указано Name")]
         public string Name { get; set; }
@@ -22,7 +22,10 @@ namespace bookKeeper_DTO
         [Compare("Password", ErrorMessage = "Пароль введен неверно")]
         public string ConfirmPassword { get; set; }
 
-        public AuthDto(string email, string password, string confirmPassword, string name)
+        public RegisterDto()
+        { }
+
+        public RegisterDto(string email, string password, string confirmPassword, string name)
         {
             Email = email;
             Password = password;

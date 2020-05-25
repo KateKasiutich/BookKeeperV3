@@ -88,6 +88,10 @@
       <Project>{6df81fd3-bd6e-4d18-ad4f-f5772d3714df}</Project>
       <Name>bookKeeper-DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-Entity\bookKeeper-Entity.csproj">
+      <Project>{6098EB37-22D0-46B0-9A4F-9D2106F9E5C9}</Project>
+      <Name>bookKeeper-Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

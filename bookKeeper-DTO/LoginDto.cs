@@ -15,6 +15,9 @@ namespace bookKeeper_DTO
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        public LoginDto()
+        { }
+
         public LoginDto(string email, string password)
         {
             Email = email;

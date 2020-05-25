@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using bookKeeper_DAL.Abstract.Repository;
+using bookKeeper_DAL.Impl.Contexts;
 
 namespace bookKeeper_DAL.Impl.Repositories
 {

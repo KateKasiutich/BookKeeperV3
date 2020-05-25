@@ -1,10 +1,8 @@
 ﻿using bookKeeper_DAL.Abstract.IInterfaces;
 using bookKeeper_DAL.Impl.Repositories;
 using bookKeeper_Entity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using bookKeeper_DAL.Impl.Contexts;
 
 namespace bookKeeper_DAL.Impl
 {
@@ -12,5 +10,10 @@ namespace bookKeeper_DAL.Impl
     {
         public UserRepository(DataBaseContext context) : base(context)
         { }
+
+        public User GetByEmail(string email)
+        {
+            return Db.Users.First(user => user.Email == email);
+        }
     }
 }
