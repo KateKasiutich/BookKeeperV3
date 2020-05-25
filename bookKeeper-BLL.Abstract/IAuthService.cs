@@ -7,5 +7,7 @@ namespace bookKeeper_DAL.Abstract
 {
     public interface IAuthService
     {
+        void Registration(string name, string email, string password);
+
     }
 }

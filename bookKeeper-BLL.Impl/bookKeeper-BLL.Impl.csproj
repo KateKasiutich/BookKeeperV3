@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0DD046A5-A0FD-4631-9BB9-EF0BC0972347}</ProjectGuid>
+    <ProjectGuid>{DC9FB520-2B72-4C7F-9295-B2077A248D9E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>bookKeeper_BLL.Abstract</RootNamespace>
-    <AssemblyName>bookKeeper-BLL.Abstract</AssemblyName>
+    <RootNamespace>bookKeeper_BLL.Impl</RootNamespace>
+    <AssemblyName>bookKeeper-BLL.Impl</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -70,8 +70,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAuthService.cs" />
-    <Compile Include="IBookService.cs" />
+    <Compile Include="BookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +83,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\bookKeeper-BLL.Abstract\bookKeeper-BLL.Abstract.csproj">
+      <Project>{0dd046a5-a0fd-4631-9bb9-ef0bc0972347}</Project>
+      <Name>bookKeeper-BLL.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-DAL.Abstract\bookKeeper-DAL.Abstract.csproj">
+      <Project>{9f2d3a10-c27b-4360-a271-31a5d2a852a5}</Project>
+      <Name>bookKeeper-DAL.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-DAL.Impl\bookKeeper-DAL.Impl.csproj">
+      <Project>{36a22eeb-d0a8-44e0-80fe-9724e1ee7ede}</Project>
+      <Name>bookKeeper-DAL.Impl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\bookKeeper-DTO\bookKeeper-DTO.csproj">
       <Project>{6df81fd3-bd6e-4d18-ad4f-f5772d3714df}</Project>
       <Name>bookKeeper-DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-Entity\bookKeeper-Entity.csproj">
+      <Project>{6098eb37-22d0-46b0-9a4f-9d2106f9e5c9}</Project>
+      <Name>bookKeeper-Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper\bookKeeper.csproj">
+      <Project>{27115de2-aee7-4dc5-b315-d67db382bdf4}</Project>
+      <Name>bookKeeper</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -102,9 +121,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>55316</DevelopmentServerPort>
+          <DevelopmentServerPort>55824</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:55316/</IISUrl>
+          <IISUrl>http://localhost:55824/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
