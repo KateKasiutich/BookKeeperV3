@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookKeeper-DAL.Impl", "book
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookKeeper-DTO", "bookKeeper-DTO\bookKeeper-DTO.csproj", "{6DF81FD3-BD6E-4D18-AD4F-F5772D3714DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookKeeper-BLL.Abstract", "bookKeeper-BLL.Abstract\bookKeeper-BLL.Abstract.csproj", "{0DD046A5-A0FD-4631-9BB9-EF0BC0972347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{6DF81FD3-BD6E-4D18-AD4F-F5772D3714DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DF81FD3-BD6E-4D18-AD4F-F5772D3714DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DF81FD3-BD6E-4D18-AD4F-F5772D3714DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DD046A5-A0FD-4631-9BB9-EF0BC0972347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD046A5-A0FD-4631-9BB9-EF0BC0972347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD046A5-A0FD-4631-9BB9-EF0BC0972347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD046A5-A0FD-4631-9BB9-EF0BC0972347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
