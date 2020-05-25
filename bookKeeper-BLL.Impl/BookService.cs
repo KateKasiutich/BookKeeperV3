@@ -22,33 +22,33 @@ namespace bookKeeper_BLL.Impl
         public void AddBook(string name, string author, string review, int userId)
         {
             Book book = new Book();
+            book.Title = name;
+            book.Author = author;
+            book.Description = review;
+            book.UserId = userId;
             BookRepo.Create(book);
             BookRepo.Save();
         }
 
         public void EditBook(string name, string author, string review, int userId, int bookId)
         {
-            BookRepo.GetSingle(bookId);
-            //тут я не совсем понимаю, как дальше менять значения
-            //тем более, что я извлекла не класс, а запись о книге
+            Book book = BookRepo.GetSingle(bookId);
+            book.Title = name;
+            book.Author = author;
+            book.Description = review;
+            BookRepo.Update(book);
             BookRepo.Save();
-
         }
 
         public IEnumerable<BookDto> GetBooks(int userId)
         {
-            //return BookRepo.GetUsersBooks(userId);
-            //я понимаю, что строчка вверху - это неправильно, поскольку нам, видимо, нужно взаимодейстовать
-            // c BookDto, но я не понимаю, как это с делать
-            // соответственоо, я не знаю, как сделать проверку
+            return BookRepo.GetUsersBooks(userId).Select(book => new BookDto(book.Title, book.Author, book.Description, book.BookId));
         }
 
         public void RemoveBook(int bookId, int userId)
         {
-            //проверка
             BookRepo.Delete(bookId);
             BookRepo.Save();
-            
         }
     }
 }
