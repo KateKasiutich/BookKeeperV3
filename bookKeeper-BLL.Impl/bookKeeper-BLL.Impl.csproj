@@ -104,10 +104,6 @@
       <Project>{6098eb37-22d0-46b0-9a4f-9d2106f9e5c9}</Project>
       <Name>bookKeeper-Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\bookKeeper\bookKeeper.csproj">
-      <Project>{27115de2-aee7-4dc5-b315-d67db382bdf4}</Project>
-      <Name>bookKeeper</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="AuthDto.cs" />
     <Compile Include="bookDto.cs" />
+    <Compile Include="LoginDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
