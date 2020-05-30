@@ -16,7 +16,7 @@ namespace bookKeeper
 
         public static TTypeToResolve Resolve<TTypeToResolve>()
         {
-            return (TTypeToResolve)Resolve(typeof(TTypeToResolve));
+            return (TTypeToResolve)Resolve(typeof(TTypeToResolve)); //создать экземпляр зарегестрированного типа
         }
 
         public static object Resolve(Type type)
@@ -27,10 +27,10 @@ namespace bookKeeper
         private static object GetInstance(Type type)
         {
             var parameters = ResolveConstructorParameters(type);
-            return Activator.CreateInstance(type, parameters.ToArray());
+            return Activator.CreateInstance(type, parameters.ToArray()); // создаем экземпляр класса без слова new, не зная о кнонструкторе
         }
 
-        private static IEnumerable<object> ResolveConstructorParameters(Type type)
+        private static IEnumerable<object> ResolveConstructorParameters(Type type) //получает из списка конструкторов класса первый и для каждого его параметра (если они есть) пытается создать экземпляр
         {
             var constructorInfo = type.GetConstructors().First();
             return constructorInfo.GetParameters().Select(parameter => Resolve(parameter.ParameterType));

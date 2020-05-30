@@ -200,6 +200,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockBookRepository.cs" />
+    <Compile Include="MockUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +211,30 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\bookKeeper-BLL.Abstract\bookKeeper-BLL.Abstract.csproj">
+      <Project>{0dd046a5-a0fd-4631-9bb9-ef0bc0972347}</Project>
+      <Name>bookKeeper-BLL.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-BLL.Impl\bookKeeper-BLL.Impl.csproj">
+      <Project>{dc9fb520-2b72-4c7f-9295-b2077a248d9e}</Project>
+      <Name>bookKeeper-BLL.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-DAL.Abstract\bookKeeper-DAL.Abstract.csproj">
+      <Project>{9f2d3a10-c27b-4360-a271-31a5d2a852a5}</Project>
+      <Name>bookKeeper-DAL.Abstract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-DAL.Impl\bookKeeper-DAL.Impl.csproj">
+      <Project>{36a22eeb-d0a8-44e0-80fe-9724e1ee7ede}</Project>
+      <Name>bookKeeper-DAL.Impl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-DTO\bookKeeper-DTO.csproj">
+      <Project>{6df81fd3-bd6e-4d18-ad4f-f5772d3714df}</Project>
+      <Name>bookKeeper-DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\bookKeeper-Entity\bookKeeper-Entity.csproj">
+      <Project>{6098eb37-22d0-46b0-9a4f-9d2106f9e5c9}</Project>
+      <Name>bookKeeper-Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\bookKeeper\bookKeeper.csproj">
       <Project>{27115DE2-AEE7-4DC5-B315-D67DB382BDF4}</Project>
       <Name>bookKeeper</Name>

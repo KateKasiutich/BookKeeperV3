@@ -42,6 +42,7 @@ namespace bookKeeper.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterDto model)
