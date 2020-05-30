@@ -42,7 +42,7 @@ namespace bookKeeper_BLL.Impl
 
         public IEnumerable<BookDto> GetBooks(int userId)
         {
-            return BookRepo.GetUsersBooks(userId).Select(book => new BookDto(book.Title, book.Author, book.Description, book.BookId));
+            return BookRepo.GetUsersBooks(userId).Select(book => new BookDto(book.Title, book.Author, book.Description, book.Id));
         }
 
         public void RemoveBook(int bookId, int userId)

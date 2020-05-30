@@ -7,10 +7,10 @@ using System.Web;
 
 namespace bookKeeper_Entity
 {
-    public class Book
+    public class Book : IWithId<int>
     {
-        [Key][Required]
-        public int BookId { get; set; }
+        [Key, Required]
+        public int Id { get; set; }
         [ForeignKey("UserId")]
         public int UserId { get; set; }
         [ForeignKey("UserId")]

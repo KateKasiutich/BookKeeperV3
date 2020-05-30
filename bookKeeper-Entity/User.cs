@@ -7,10 +7,10 @@ using System.Web;
 
 namespace bookKeeper_Entity
 {
-    public class User
+    public class User : IWithId<int>
     {
-        [Key][Required]
-        public int UserId { get; set; }
+        [Key, Required]
+        public int Id { get; set; }
 
         [Required]
         [Index(IsUnique = true)]

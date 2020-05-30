@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using bookKeeper_DAL.Abstract.Repository;
 using bookKeeper_DAL.Impl.Contexts;
+using bookKeeper_Entity;
 
 namespace bookKeeper_DAL.Impl.Repositories
 {
-    public abstract class EFCoreRepository<TKey, TEntity> : IRepository<TKey, TEntity>
-        where TKey : struct where TEntity : class
+    public abstract class EFCoreRepository<TKey, TEntity> : IRepository<TKey, TEntity> 
+        where TKey : struct where TEntity : class, IWithId<TKey>
     {
         protected readonly DataBaseContext Db;
 

@@ -26,7 +26,7 @@ namespace bookKeeper_BLL.Impl
                 user.Password = regInfo.Password;
                 UserRepo.Create(user);
                 UserRepo.Save();
-                id = user.UserId;
+                id = user.Id;
                 FormsAuthentication.SetAuthCookie(user.Name, true);
                 return true;
             }
@@ -43,7 +43,7 @@ namespace bookKeeper_BLL.Impl
             try
             {
                 User user = UserRepo.GetByEmail(logInfo.Email);
-                id = user.UserId;
+                id = user.Id;
 
                 if (user.Password == logInfo.Password)
                 {
