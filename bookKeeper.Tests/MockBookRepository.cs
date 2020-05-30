@@ -10,6 +10,7 @@ namespace bookKeeper.Tests
 {
     class MockBookRepository : MockRepository<int, Book>, IBookRepository
     {
+        public object Books { get; internal set; }
 
         public IEnumerable<Book> GetUsersBooks(int userId)
         {

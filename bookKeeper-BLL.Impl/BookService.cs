@@ -32,7 +32,7 @@ namespace bookKeeper_BLL.Impl
         {
             Book book = BookRepo.GetSingle(bookDto.BookId);
             if (book.UserId != userId)
-                throw new Exception("You are trying to edit another user's Book.");
+                throw new InvalidOperationException("You are trying to edit another user's Book.");
             book.Title = bookDto.Title;
             book.Author = bookDto.Author;
             book.Description = bookDto.Review;
@@ -49,7 +49,7 @@ namespace bookKeeper_BLL.Impl
         {
             Book book = BookRepo.GetSingle(bookId);
             if (book.UserId != userId)
-                throw new Exception("You are trying to delete another user's Book.");
+                throw new InvalidOperationException("You are trying to delete another user's Book.");
             BookRepo.Delete(bookId);
             BookRepo.Save();
         }

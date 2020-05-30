@@ -200,6 +200,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookServiceUnitTests.cs" />
     <Compile Include="MockRepository.cs" />
     <Compile Include="MockBookRepository.cs" />
     <Compile Include="MockUserRepository.cs" />
