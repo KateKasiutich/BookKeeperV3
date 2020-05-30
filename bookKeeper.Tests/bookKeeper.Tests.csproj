@@ -201,10 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookServiceUnitTests.cs" />
+    <Compile Include="IntegrationTests.cs" />
     <Compile Include="MockRepository.cs" />
     <Compile Include="MockBookRepository.cs" />
     <Compile Include="MockUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestDataBaseContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
